@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Utmostmining-about</title>
+    <title>Utmostmining-Contact</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -29,20 +28,24 @@
 </head>
 <!-- body -->
 
-<body class="main-layout">
+<body class="main-layout inner_page">
     <!-- loader  -->
-    <div class="loader_bg">
+    <div class="loader_bg"> 
         <div class="loader"><img src="{% static 'home/images/loading.gif' %}" alt="" /></div>
     </div>
     <!-- end loader -->
     <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="homepage.html">Home</a>
-        <a class="active" href="about.html">About</a>
-        <a href="searvices.html">Searvices</a>
-        <a href="testimonial.html">Testimonial</a>
-        <a href="works.html">Works</a>
-        <a href="contact.html">Contact</a>
+        <a href="{% url 'homepage' %}">Home</a>
+        <a class="active" href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'about' %}">About</a>
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}">Dashboard</a> 
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
     </div>
     <!-- header -->
     <header>
@@ -78,34 +81,42 @@
         </div>
     </header>
     <!-- end header -->
-    <!-- about -->
-    <div id="about" class="about">
+    <div class="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="about_border">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_center">
+                        <h2>Contact Us</h2>
+                    </div>
+                </div>
+                <div class=" col-md-10 offset-md-1">
+                    <form id="request" class="main_form">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="titlepage text_align_left">
-                                    <h2>About Us</h2>
-                                </div>
-                                <div class="about_text">
-                                    <p>It is a long established fact that a reader will be distracted bIt is a long established fact that a reader will be distracted by y It is a long established fact that a reader will be distracted by It is a long established fact that a reader will be distracted by </p>
-                                    <a class="read_more" href="about.html">Read More</a>
-                                </div>
+                            <div class="col-md-6 ">
+                                <input class="contactus" placeholder="Full Name" type="type" name="Full Name">
                             </div>
                             <div class="col-md-6">
-                                <div class="about_img"> 
-                                    <figure><img class="img_responsive" src="{% static 'home/images/about2.png' %}" alt="#" /></figure>
-                                </div>
+                                <input class="contactus" placeholder="Email" type="type" name="Email">
+                            </div>
+                            <div class="col-md-6">
+                                <input class="contactus" placeholder="Phone number" type="type" name="Phone number">
+                            </div>
+                            <div class="col-md-6">
+                                <textarea class="textarea" placeholder="Message" type="type" Message="Name"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="send_btn">Send</button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end about -->
     <!-- footer -->
     <footer>
         <div class="footer">
@@ -207,7 +218,7 @@
       <!-- Javascript files--> 
       <script src="{% static 'home/js/jquery.min.js' %} "></script>
       <script src="{% static 'home/js/bootstrap.bundle.min.js' %} "></script>
-      <script src="{% static 'home/js/jquery-3.0.0.min.js' %}"></script>
-      <script src="{% static 'home/js/custom.js' %}"></script>
+      <script src="{% static 'home/js/jquery-3.0.0.min.js' %} "></script>
+      <script src="{% static 'home/js/custom.js' %} "></script>
    </body>
 </html>
