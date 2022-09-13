@@ -108,14 +108,21 @@
                                     <form method="POST" action="." id="CreateUserForm">
                                             {% csrf_token %}
                                         <div class="form-group">
-                                            {{form.username}}
-                                            <!--<input type="email" class="form-control form-control-user"
+                                            <label for="exampleInputEmail1"
+                                            class="form-label"> Username</label>
+                                            <input type="text" class="form-control" name="username">
+                                          <!--   {{form.username}}
+                                                <input type="email" class="form-control form-control-user"
                                                 name="useremail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..."> -->
                                         </div>
                                         <div class="form-group">
-                                            {{form.password1}}
-                                            <!-- <input type="password" class="form-control form-control-user"
+                                            <label for="exampleInputPassword1"
+                                            class="form-label"> Password</label>
+                                            <input type="password" class="form-control" name="password">
+                                            <!-- {{form.password}}
+                                            
+                                                <input type="password" class="form-control form-control-user"
                                                 name="password" placeholder="Password"> -->
                                         </div>
                                         <div class="form-group">

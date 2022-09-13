@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+#from utmostmining.members.models import Members
+
 class CreateUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs): 
         super().__init__(*args, **kwargs)
@@ -78,4 +80,10 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
 
+"""
+    class MembersForm(forms.ModelForm):
+        class Meta:
+            model = Members
+            fields = ['user', 'first_name', 'last_name', 'email', 'wallet_balance']
+            """
 
