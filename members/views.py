@@ -25,7 +25,7 @@ def signup_user (request):
             
 
 def login_user (request):
-    form = CreateUserForm()
+  #  form = CreateUserForm()
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
