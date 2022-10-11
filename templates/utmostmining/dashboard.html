@@ -209,10 +209,15 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Account Type</div> <!--18-->
+                                                Account Type
+                                            </div> <!--18-->
+                                            {% if request.user.members.account_type == '' %}
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">None</div>
-                                         </div>
-                                         <div class="col-auto">
+                                            {% else %}
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{request.user.members.account_type}}</div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
                                         
@@ -228,8 +233,11 @@
                                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                     Account Status
                                                 </div> <!--18-->
+                                                {% if request.user.members.account_status == '' %}
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800">Unverified</div>
-                                          
+                                                {% else %}
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{request.user.members.account_status}}</div>
+                                                {% endif %}
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -248,7 +256,12 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Wallet Balance</div> <!--$40,000 -->
+                                        {% if request.user.members.wallet_balance == '' %}
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">$0.00</div>
+                                        {% else %}
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${{request.user.members.wallet_balance}}</div>
+                                        {% endif %}
+                                        
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -260,7 +273,11 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                             Invested</div> <!-- $215,000 -->
+                                        {% if request.user.members.invested == '' %}
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">$0.00</div>
+                                        {% else %}
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${{request.user.members.invested}}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -271,9 +288,14 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Total Withdrawal</div> <!--18-->
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$0.00</div>
-                                        </div>
+                                            Total Withdrawal
+                                        </div> <!--18-->
+                                        {% if request.user.members.total_withdrawal == '' %}
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$0.00</div>
+                                        {% else %}
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${{request.user.members.total_withdrawal}}</div>
+                                        {% endif %} 
+                                        
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                         </div>
@@ -283,8 +305,13 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Referral Bonus</div> <!--$40,000 -->
+                                            Referral Bonus
+                                        </div> <!--$40,000 -->
+                                        {% if request.user.members.referral_bonus == '' %}
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">$0.00</div>
+                                        {% else %}
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${{request.user.members.referral_bonus}}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

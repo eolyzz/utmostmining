@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def homepage (request):
@@ -16,3 +16,5 @@ def payment (request):
 def forgot_password (request):
     return render (request, 'forgot-password.html', {})
 
+def handle_not_found (request, exception):
+    return redirect('homepage')

@@ -4,6 +4,7 @@ from .forms import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required 
+from .models import Members
 
 # Create your views here.
 def signup_user (request):
@@ -77,11 +78,15 @@ def logout_user (request):
 
 @login_required(login_url="login")
 def dashboard (request):
-    return render (request, 'dashboard.html')
+    members = Members.objects.all().order_by('name')
+    context = {'members': members}
+    return render (request, 'dashboard.html', context)
 """
     MembersForm = MembersForm(instance=request.user.profile)
     context = {
         'MembersForm':MembersForm
     }
 """
-  
+
+def handle_not_found (request, exception):
+    return redirect('homepage')

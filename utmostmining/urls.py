@@ -1,3 +1,4 @@
+from cgitb import handler
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path, include
@@ -17,3 +18,5 @@ urlpatterns = [
     
 ] + static(settings.STATIC_URL,
 document_root=settings.STATIC_ROOT)
+
+handler404 = "members.views.handle_not_found"

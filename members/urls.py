@@ -9,3 +9,4 @@ urlpatterns = [
     path('dashboard/',views.dashboard, name = 'dashboard'),
     
 ]
+handler404 = "members.views.handle_not_found"
